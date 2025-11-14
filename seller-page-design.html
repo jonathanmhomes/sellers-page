@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sell Your Home | HomeSmart Evergreen Realty</title>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Manrope', sans-serif;
+            color: #161612;
+            line-height: 1.5;
+        }
+
+        .hero {
+            background: linear-gradient(rgba(3, 31, 48, 0.7), rgba(3, 31, 48, 0.5)), 
+                        url('https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=1600') center/cover;
+            height: 600px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #FFFFFF;
+            position: relative;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: repeating-linear-gradient(
+                45deg,
+                transparent,
+                transparent 50px,
+                rgba(204, 141, 79, 0.03) 50px,
+                rgba(204, 141, 79, 0.03) 100px
+            );
+            pointer-events: none;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+            letter-spacing: -1.4px;
+            line-height: 3.5rem;
+        }
+
+        .hero-content p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            max-width: 700px;
+            font-weight: 400;
+            line-height: 1.95rem;
+        }
+
+        .btn-primary {
+            background: #CD1935;
+            color: #FFFFFF;
+            padding: 1rem 2.5rem;
+            border: none;
+            border-radius: 4px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+            font-family: 'Manrope', sans-serif;
+        }
+
+        .btn-primary:hover {
+            background: #a31429;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(205, 25, 53, 0.3);
+        }
+
+        .btn-secondary {
+            background: #FFFFFF;
+            color: #031F30;
+            padding: 0.9rem 2rem;
+            border: 2px solid #CC8D4F;
+            border-radius: 4px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+            font-family: 'Manrope', sans-serif;
+        }
+
+        .btn-secondary:hover {
+            background: #CC8D4F;
+            color: #FFFFFF;
+            transform: translateY(-2px);
+            border-color: #CC8D4F;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #031F30;
+            font-weight: 700;
+            letter-spacing: -1px;
+            line-height: 2.5rem;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.1rem;
+            color: #61595D;
+            margin-bottom: 3rem;
+            font-weight: 400;
+            line-height: 1.65rem;
+        }
+
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .tool-card {
+            background: #FFFFFF;
+            padding: 2.5rem 2rem;
+            border-radius: 0;
+            box-shadow: 0 2px 12px rgba(3, 31, 48, 0.08);
+            text-align: center;
+            transition: all 0.3s;
+            border: 2px solid #F6F4F2;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .tool-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, #CD1935 0%, #CC8D4F 100%);
+            transform: scaleX(0);
+            transition: transform 0.3s;
+        }
+
+        .tool-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .tool-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 8px 24px rgba(3, 31, 48, 0.12);
+            border-color: #CC8D4F;
+        }
+
+        .tool-icon {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .tool-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            color: #031F30;
+            font-weight: 600;
+        }
+
+        .tool-card p {
+            color: #61595D;
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+            line-height: 1.425rem;
+            font-weight: 400;
+        }
+
+        .process-section {
+            background: #F4EDE5;
+            padding: 4rem 2rem;
+            position: relative;
+        }
+
+        .process-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: repeating-linear-gradient(
+                90deg,
+                transparent,
+                transparent 100px,
+                rgba(204, 141, 79, 0.05) 100px,
+                rgba(204, 141, 79, 0.05) 200px
+            );
+            pointer-events: none;
+        }
+
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .process-step {
+            text-align: center;
+            position: relative;
+        }
+
+        .step-number {
+            width: 70px;
+            height: 70px;
+            background: #CD1935;
+            color: #FFFFFF;
+            border-radius: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            font-weight: 700;
+            margin: 0 auto 1.5rem;
+            clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+        }
+
+        .process-step h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.8rem;
+            color: #031F30;
+            font-weight: 600;
+        }
+
+        .process-step p {
+            color: #61595D;
+            font-size: 0.95rem;
+            line-height: 1.425rem;
+            font-weight: 400;
+        }
+
+        .buying-section {
+            background: linear-gradient(135deg, #031F30 0%, #CC8D4F 100%);
+            color: #FFFFFF;
+            padding: 4rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .buying-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 400px;
+            height: 400px;
+            background: rgba(204, 141, 79, 0.1);
+            clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+            transform: rotate(45deg);
+        }
+
+        .buying-content {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .buying-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+            letter-spacing: -1px;
+            line-height: 2.5rem;
+        }
+
+        .buying-content p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            line-height: 1.8rem;
+            font-weight: 400;
+        }
+
+        .buying-content .btn-primary {
+            background: #FFFFFF;
+            color: #CD1935;
+        }
+
+        .buying-content .btn-primary:hover {
+            background: #F4EDE5;
+            color: #CD1935;
+        }
+
+        .cta-section {
+            background: #161612;
+            color: #FFFFFF;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .cta-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+            letter-spacing: -1px;
+            line-height: 2.5rem;
+        }
+
+        .cta-content p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            color: #B8B7B7;
+            line-height: 1.8rem;
+            font-weight: 400;
+        }
+
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 2.5rem;
+                line-height: 2.5rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+                line-height: 2rem;
+            }
+
+            .tools-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .process-steps {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Ready to Sell? Let's Get Started</h1>
+            <p>Expert guidance, proven results, and a seamless selling experience from start to finish</p>
+            <button class="btn-primary" onclick="document.getElementById('tools').scrollIntoView({behavior: 'smooth'})">
+                Explore Your Options
+            </button>
+        </div>
+    </section>
+
+    <!-- Tools Section -->
+    <section class="container" id="tools">
+        <h2 class="section-title">Your Selling Toolkit</h2>
+        <p class="section-subtitle">Everything you need to make informed decisions about your sale</p>
+        
+        <div class="tools-grid">
+            <div class="tool-card">
+                <div class="tool-icon">🏡</div>
+                <h3>Home Valuation</h3>
+                <p>Get a comprehensive assessment of your property's current market value</p>
+                <a href="https://forms.gle/1rj4nsyrb7tc92ew6" target="_blank" class="btn-secondary">Schedule Now</a>
+            </div>
+
+            <div class="tool-card">
+                <div class="tool-icon">📊</div>
+                <h3>Quick CMA</h3>
+                <p>See what similar homes in your area have recently sold for</p>
+                <a href="https://forms.gle/1rj4nsyrb7tc92ew6" target="_blank" class="btn-secondary">Request CMA</a>
+            </div>
+
+            <div class="tool-card">
+                <div class="tool-icon">💰</div>
+                <h3>Equity Calculator</h3>
+                <p>Find out how much equity you've built in your home</p>
+                <a href="https://lawyersagent.com/calc/T0RZek9ERXlAOTMwMjVAc2hhcmVkQDEuMw==" target="_blank" class="btn-secondary">Calculate Equity</a>
+            </div>
+
+            <div class="tool-card">
+                <div class="tool-icon">💵</div>
+                <h3>Net Proceeds</h3>
+                <p>Estimate what you'll walk away with after closing costs</p>
+                <a href="https://lawyersagent.com/calc/T0RZek9ERXlAOTMwNjRAc2hhcmVkQDEuMw==" target="_blank" class="btn-secondary">Estimate Net</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="process-section">
+        <h2 class="section-title">The Selling Process</h2>
+        <p class="section-subtitle">A straightforward path to a successful sale</p>
+        
+        <div class="process-steps">
+            <div class="process-step">
+                <div class="step-number">1</div>
+                <h3>Consultation</h3>
+                <p>We'll discuss your goals, timeline, and create a customized selling strategy</p>
+            </div>
+
+            <div class="process-step">
+                <div class="step-number">2</div>
+                <h3>Preparation</h3>
+                <p>Stage and prepare your home to make the best first impression</p>
+            </div>
+
+            <div class="process-step">
+                <div class="step-number">3</div>
+                <h3>Marketing</h3>
+                <p>Professional photography and strategic marketing to reach qualified buyers</p>
+            </div>
+
+            <div class="process-step">
+                <div class="step-number">4</div>
+                <h3>Offers</h3>
+                <p>Review and negotiate offers to get the best terms for your situation</p>
+            </div>
+
+            <div class="process-step">
+                <div class="step-number">5</div>
+                <h3>Closing</h3>
+                <p>Navigate inspections and paperwork smoothly to a successful close</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Buying Section -->
+    <section class="buying-section">
+        <div class="buying-content">
+            <h2>Need to Buy Too?</h2>
+            <p>Selling and buying can be complex. I'll coordinate both transactions to make your transition seamless and stress-free.</p>
+            <a href="#buyers-page" class="btn-primary">Explore Buyer Services</a>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="cta-content">
+            <h2>Ready to Take the Next Step?</h2>
+            <p>Let's connect and discuss how I can help you achieve your selling goals</p>
+            <a href="https://forms.gle/yMKRS7SjKybUbGBM6" target="_blank" class="btn-primary">Schedule a Consultation</a>
+        </div>
+    </section>
+</body>
+</html>
